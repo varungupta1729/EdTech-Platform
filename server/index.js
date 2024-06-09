@@ -23,18 +23,18 @@ database.connect();
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(
-  cors({
-    origin: JSON.parse(process.env.CORS_ORIGIN),
-    credentials: true,
-    maxAge: 14400,
-  })
-);
+// app.use(
+//   cors({
+//     origin: JSON.parse(process.env.CORS_ORIGIN),
+//     credentials: true,
+//     maxAge: 14400,
+//   })
+// );
 
 
 app.use(
   cors({
-    origin: 'https://edtech-platform-varungupta.vercel.app', // use your actual domain name (or localhost), using * is not recommended
+    origin: JSON.parse(process.env.CORS_ORIGIN), // use your actual domain name (or localhost), using * is not recommended
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
     credentials: true,
